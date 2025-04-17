@@ -1,0 +1,40 @@
+.search-input {
+  border-radius: 5px;
+  border: 1px solid var(--color-secondary-gray);
+  background-color: var(--color-bg-dark);
+  margin-right: 10px;
+  color: var(--color-text-inverse);
+}
+
+.search-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: none;
+  background-color: var(--color-bg-dark);
+  outline: none;
+  color: var(--color-text-inverse);
+}
+
+.search-input::placeholder {
+  color: var(--color-text-sub);
+}
+
+.search-button {
+  border-radius: 5px;
+  border: 1px solid var(--color-secondary-gray);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+}
+
+.search-button:hover {
+  background-color: var(--color-bg-dark);
+  color: var(--color-primary-light);
+}
+
+.search-button:active {
+  background-color: var(--color-bg-dark) !important;
+  color: var(--color-text-inverse);
+}
+
+.navbar-toggle {
+  filter: brightness(4); /* 햄버거 밝게 */
+}
