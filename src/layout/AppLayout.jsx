@@ -9,8 +9,10 @@ import { Search } from "react-bootstrap-icons";
 import "./AppLayout.style.css";
 
 import notflixLogoString from "@/assets/notflix-logo-str.svg";
+import { useNavigate } from "react-router-dom";
 
-function AppLayout() {
+  function AppLayout() {
+  const navigate = useNavigate();
   return (
     <>
       <Navbar expand="md" className="bg-black">
@@ -18,7 +20,7 @@ function AppLayout() {
           fluid
           style={{ width: "100%", height: "100%", padding: "0px 20px" }}
         >
-          <Navbar.Brand href="/" style={{ width: "160px", height: "60px" }}>
+          <Navbar.Brand onClick={() => navigate("/home")} style={{ width: "160px", height: "60px" }}>
             <img
               src={notflixLogoString}
               width="150"
@@ -35,10 +37,10 @@ function AppLayout() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/" className="text-white">
+              <Nav.Link onClick={() => navigate("/home")} className="text-white">
                 Home
               </Nav.Link>
-              <Nav.Link href="/movies" className="text-white">
+              <Nav.Link onClick={() => navigate("/movies")} className="text-white">
                 Movies
               </Nav.Link>
             </Nav>

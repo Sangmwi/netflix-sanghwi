@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { api } from "../utils/api";
+import { api } from "@/utils/api";
 
 
 
@@ -11,4 +11,6 @@ export const usePopularMovies = (page) => {
         select: (data) => data.data,
     });
 };
+
+
 

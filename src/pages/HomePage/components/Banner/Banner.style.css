@@ -1,3 +1,18 @@
+
+.banner-loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  color: #e5e5e5;
+}
+
+.banner-loading-skeleton {
+  border-radius: 0.5rem;
+  color: #e5e5e5;
+}
+
+
 .banner {
   height: 56vh;
   width: 100%;
@@ -5,6 +20,7 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  background-color: #000000;
 }
 
 .banner::after {
@@ -14,31 +30,33 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, black, transparent);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.6) 40%,
+    transparent 90%
+  );
 }
 
 .banner-content {
   display: flex;
-  position: absolute;
-  bottom: 0;
   justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  align-items: flex-end;
+  height: 100%;
 }
 
 .banner-content-left {
-  z-index: 1;
+  width: 70%;
   height: 100%;
-  width:60%;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 2rem 4rem;
+  padding: 2rem;
+  z-index: 1;
 }
 
-
 .banner-content-left h1 {
-  max-width: 80%;
+  max-width: 90%;
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 0.5rem;
@@ -53,20 +71,22 @@
   -ms-overflow-style: none;
   font-size: 1.2rem;
   color: #969696;
+  padding-left: 0.8rem;
+  border-left: 1px solid #969696;
   margin: 0;
 }
 
-
-
 .banner-content-right {
-    z-index: 1;
-    height: 100%;
-    width:40%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 2rem 4rem;
-  }
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 4rem 2rem;
+}
 
-
-
+.play-button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
