@@ -1,16 +1,21 @@
-
-.popular-movies-slide {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+.popular-movies-title {
+  width: fit-content;
+  background: linear-gradient(to right, var(--color-primary-darker), var(--color-primary-light));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem;
+  margin-bottom: 1rem;
 }
 
 
-.movie-slider {
-  width: 100%;
-  height: 100%;
-}
+
+
+
+
+
+
 
 

@@ -30,7 +30,7 @@ const Banner = () => {
         <div className="banner-content-right">
           <Button className="play-button" variant="light">
             <span className="play-icon">▶</span>
-            <span className="d-none d-md-inline">재생</span>
+            <span className="d-none d-md-inline"> 재생</span>
           </Button>
         </div>
       </div>
