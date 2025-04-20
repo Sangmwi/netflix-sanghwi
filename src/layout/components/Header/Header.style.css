@@ -1,0 +1,54 @@
+.search-input {
+    border-radius: 7px;
+    border: 1px solid var(--color-secondary-gray);
+    background-color: var(--color-bg-dark);
+    margin-right: 5px;
+    color: var(--color-text-inverse);
+  }
+  
+  .search-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: none;
+    background-color: var(--color-bg-dark);
+    outline: none;
+    color: var(--color-text-inverse);
+  }
+  
+  .search-input::placeholder {
+    color: var(--color-text-sub);
+  }
+  
+  .search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M2 2l12 12M14 2L2 14' stroke='white' stroke-width='2'/%3E%3C/svg%3E")
+      no-repeat center center;
+    background-size: 0.8rem 0.8rem;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+  }
+  
+  
+  .search-button {
+    border-radius: 7px;
+    border: 1px solid var(--color-secondary-gray);
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-inverse);
+  }
+  
+  .search-button:hover {
+    background-color: var(--color-bg-dark);
+    color: var(--color-primary-light);
+  }
+  
+  .search-button:active {
+    background-color: var(--color-bg-dark) !important;
+    color: var(--color-text-inverse);
+  }
+  
+  .navbar-toggle {
+    filter: brightness(4); /* 햄버거 밝게 */
+  }
+  

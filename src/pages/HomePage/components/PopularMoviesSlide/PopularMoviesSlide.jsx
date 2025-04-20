@@ -9,14 +9,14 @@ import "./PopularMoviesSlide.style.css";
 export const responsive = {
   // 화면 너비 1600px 이상
   superLargeDesktop: {
-    breakpoint: { max: 3200, min: 2000 },
-    items: 8,
-    slidesToSlide: 8,
-  },
-  largeDesktop: {
-    breakpoint: { max: 2000, min: 1200 },
+    breakpoint: { max: 2000, min: 1600 },
     items: 5,
     slidesToSlide: 5,
+  },
+  largeDesktop: {
+    breakpoint: { max: 1600, min: 1200 },
+    items: 4,
+    slidesToSlide: 4,
   },
   desktop: {
     // 화면 너비 900~1600px

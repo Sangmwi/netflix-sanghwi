@@ -1,0 +1,16 @@
+
+span {
+    margin-left: 0.2rem;
+    color: #d8d8d8;
+}
+
+a {
+    user-select: none;
+    color: #d8d8d8;
+    text-decoration: none;
+    margin-left: 0.5rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}

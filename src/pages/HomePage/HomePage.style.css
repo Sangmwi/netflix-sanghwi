@@ -3,6 +3,7 @@
 }
 
 .carousel-container {
+  padding: clamp(0.5rem, 1vw, 1rem) 0;
   z-index: 0;
   overflow: visible;
 }
@@ -17,7 +18,8 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
   font-weight: bold;
-  margin: 3rem 0 1rem 1rem;
+  margin-top: clamp(2.5rem, 2vw, 5rem);
+  margin-left: clamp(1.1rem, 2vw, 3rem);
 }
