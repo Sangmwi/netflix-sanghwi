@@ -6,7 +6,7 @@ import "./FooterComponent.style.css";
 const FooterComponent = () => {
   return (
     
-    <Footer container>
+    <Footer container className="footer-container">
       <div className="w-full text-center bg-black py-5 px-3">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <FooterBrand
@@ -15,7 +15,7 @@ const FooterComponent = () => {
             alt="Notflix Logo"
             name="Notflix"
           />
-          <FooterLinkGroup>
+          <FooterLinkGroup className="footer-link-group">
             <FooterLink href="/">About</FooterLink>
             <FooterLink href="/">Privacy Policy</FooterLink>
             <FooterLink href="/">Licensing</FooterLink>
