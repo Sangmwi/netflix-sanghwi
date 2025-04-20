@@ -57,7 +57,7 @@
 
 .banner-content-left h1 {
   max-width: 90%;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   margin-bottom: 0.5rem;
   color: #e5e5e5;
@@ -69,12 +69,13 @@
   overflow: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: #969696;
   padding-left: 0.8rem;
   border-left: 1px solid #969696;
   margin: 0;
 }
+
 
 .banner-content-right {
   z-index: 1;

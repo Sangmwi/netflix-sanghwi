@@ -20,7 +20,7 @@ const TopRatedMoviesSlide = () => {
       <Carousel
         infinite={true}
         centerMode={true}
-        itemClass="m-2"
+        itemClass="p-2"
         containerClass="carousel-container"
         responsive={responsive}
       >

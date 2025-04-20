@@ -10,6 +10,7 @@
     font-family: var(--font-default);
     text-align: center;
     white-space: nowrap;
+    overflow: hidden;
   }
   
   .notfound-error {
@@ -18,6 +19,7 @@
     color: var(--color-primary);
     margin-bottom: 10px;
     animation: pulse 1.5s infinite;
+    user-select: none;
   }
   
   .notfound-message {

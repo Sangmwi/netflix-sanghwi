@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
       <Navbar expand="md" className="bg-black">
         <Container
           fluid
-          style={{ width: "100%", height: "100%", padding: "0px 20px" }}
+          style={{ width: "100%", height: "100%", padding: "0px 20px", userSelect: "none" }}
         >
           <Navbar.Brand onClick={() => navigate("/home")} style={{ width: "160px", height: "60px" }}>
             <img
@@ -27,10 +27,10 @@ import { useNavigate } from "react-router-dom";
               height="60"
               className="d-inline-block align-top"
               alt="Notflix logo"
-              style={{ width: "150px", height: "60px", paddingBottom: "10px" }}
+              style={{ width: "150px", height: "60px", paddingBottom: "10px", cursor: "pointer" }}
             />
           </Navbar.Brand>
-          <Navbar.Toggle className="navbar-toggle" aria-controls="navbarScroll" variant=""/>
+          <Navbar.Toggle className="navbar-toggle" aria-controls="navbarScroll" variant="dark"/>
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="me-auto my-2 my-lg-0"

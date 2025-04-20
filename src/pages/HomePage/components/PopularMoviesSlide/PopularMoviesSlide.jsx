@@ -8,26 +8,31 @@ import "./PopularMoviesSlide.style.css";
 
 export const responsive = {
   // 화면 너비 1600px 이상
-  largeDesktop: {
-    breakpoint: { max: 3000, min: 1600 },
-    items: 7,
-    slidesToSlide: 7,
+  superLargeDesktop: {
+    breakpoint: { max: 3200, min: 2000 },
+    items: 8,
+    slidesToSlide: 8,
   },
-  desktop: {
-    // 화면 너비 900~1600px
-    breakpoint: { max: 1600, min: 900 },
+  largeDesktop: {
+    breakpoint: { max: 2000, min: 1200 },
     items: 5,
     slidesToSlide: 5,
   },
-  tablet: {
-    // 화면 너비 450~900px
-    breakpoint: { max: 900, min: 450 },
+  desktop: {
+    // 화면 너비 900~1600px
+    breakpoint: { max: 1200, min: 800 },
     items: 3,
     slidesToSlide: 3,
   },
+  tablet: {
+    // 화면 너비 450~900px
+    breakpoint: { max: 800, min: 400 },
+    items: 2,
+    slidesToSlide: 2,
+  },
   mobile: {
     // 화면 너비 0~450px
-    breakpoint: { max: 450, min: 0 },
+    breakpoint: { max: 400, min: 0 },
     items: 1,
     slidesToSlide: 1,
   },
@@ -46,9 +51,8 @@ const PopularMoviesSlide = () => {
       <h2 className="popular-movies-title slide-title"># Popular Movies</h2>
       <Carousel
         infinite={true}
-        showDots={true}
         centerMode={true}
-        itemClass="m-2"
+        itemClass="p-2"
         containerClass="carousel-container"
         responsive={responsive}
       >
