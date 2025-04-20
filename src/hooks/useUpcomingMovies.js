@@ -4,10 +4,10 @@ import { api } from "@/utils/api";
 
 
 
-export const usePopularMovies = (page) => {
+export const useUpcomingMovies = (page) => {
     return useQuery({
-        queryKey: ['movie-popular', page],
-        queryFn: () => api.get('/movie/popular', { params: { page } }),
+        queryKey: ['movie-upcoming', page],
+        queryFn: () => api.get('/movie/upcoming', { params: { page } }),
         select: (data) => data.data,
     });
 };

@@ -6,22 +6,28 @@ import MovieCard from "../MovieCard/MovieCard";
 import "./PopularMoviesSlide.style.css";
 
 
-const responsive = {
+export const responsive = {
+  // 화면 너비 1600px 이상
+  largeDesktop: {
+    breakpoint: { max: 3000, min: 1600 },
+    items: 7,
+    slidesToSlide: 7,
+  },
   desktop: {
-    // 화면 너비 1024px 이상
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4,
-    slidesToSlide: 4,
+    // 화면 너비 900~1600px
+    breakpoint: { max: 1600, min: 900 },
+    items: 5,
+    slidesToSlide: 5,
   },
   tablet: {
-    // 화면 너비 464px 이상
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-    slidesToSlide: 2,
+    // 화면 너비 450~900px
+    breakpoint: { max: 900, min: 450 },
+    items: 3,
+    slidesToSlide: 3,
   },
   mobile: {
-    // 화면 너비 0px 이상
-    breakpoint: { max: 464, min: 0 },
+    // 화면 너비 0~450px
+    breakpoint: { max: 450, min: 0 },
     items: 1,
     slidesToSlide: 1,
   },
@@ -37,9 +43,10 @@ const PopularMoviesSlide = () => {
 
   return (
     <div>
-      <h2 className="popular-movies-title"># Popular Movies</h2>
+      <h2 className="popular-movies-title slide-title"># Popular Movies</h2>
       <Carousel
         infinite={true}
+        showDots={true}
         centerMode={true}
         itemClass="m-2"
         containerClass="carousel-container"
