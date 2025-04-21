@@ -2,11 +2,24 @@ import React from "react";
 import { CircularProgress } from "@mui/material";
 import { Chip } from "@mui/material";
 import "./MovieCard.style.css";
+import { useMovieGenre } from "@/hooks/useMovieGenre";
 
 const MovieCard = ({ movie }) => {
+
   if (!movie) {
-    return <CircularProgress size={20} />;
+    return <CircularProgress size={60} />;
   }
+
+
+  const { data: movieGenre } = useMovieGenre();
+  console.log("movieGenre", movieGenre);
+
+  const showGenre = (genreIds) => {
+    if (!genreIds) return [];
+    return genreIds.map((id) => movieGenre.find((genre) => genre.id === id)?.name);
+  };
+
+
 
   return (
     <div
@@ -17,10 +30,10 @@ const MovieCard = ({ movie }) => {
     >
       <div className="movie-card-overlay">
         <h3 className="movie-card-title">{movie.title}</h3>
-        {movie.genre_ids?.map((id) => (
+        {showGenre(movie.genre_ids)?.map((genre, id) => (
           <Chip
             className="movie-card-genre"
-            label={id}
+            label={genre}
             size="small"
             color="warning"
             variant="outlined"

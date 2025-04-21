@@ -26,7 +26,7 @@
     color: white;
     background-color: rgba(0, 0, 0, 0.85);
     z-index: 1;
-    padding: clamp(0.4rem, 1.5vw, 2rem);
+    padding: clamp(0.8rem, 1.5vw, 2rem);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -37,7 +37,7 @@
 
 
 .movie-card-title {
-    font-size: clamp(0.8rem, 1.5vw, 2rem);
+    font-size: clamp(1rem, 1.5vw, 2rem);
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -46,7 +46,13 @@
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
     margin-right: 5px;
+    margin-bottom: 5px;
 }
+
+.movie-card-genre span {
+    font-size: clamp(0.6rem, 0.8vw, 1.5rem);
+}
+
 
 
 
