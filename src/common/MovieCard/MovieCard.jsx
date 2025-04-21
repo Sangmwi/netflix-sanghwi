@@ -10,9 +10,7 @@ const MovieCard = ({ movie }) => {
     return <CircularProgress size={60} />;
   }
 
-
   const { data: movieGenre } = useMovieGenre();
-  console.log("movieGenre", movieGenre);
 
   const showGenre = (genreIds) => {
     if (!genreIds) return [];
