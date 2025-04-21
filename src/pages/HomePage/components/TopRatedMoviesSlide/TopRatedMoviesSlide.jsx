@@ -12,10 +12,7 @@ const TopRatedMoviesSlide = () => {
   const movies = topRatedMovies?.results || [];
 
   return (
-    <div>
-      <h2 className="top-rated-movies-title slide-title"># Top Rated Movies</h2>
-      <MoviesSlide movies={movies} />
-    </div>
+    <MoviesSlide movies={movies} title="# Top Rated Movies" />
   );
 };
 

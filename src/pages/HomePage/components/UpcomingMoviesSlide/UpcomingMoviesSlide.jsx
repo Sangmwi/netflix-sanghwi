@@ -11,10 +11,7 @@ const UpcomingMoviesSlide = () => {
   const movies = upcomingMovies?.results || [];
 
   return (
-    <div>
-      <h2 className="upcoming-movies-title slide-title"># Upcoming Movies</h2>
-      <MoviesSlide movies={movies} />
-    </div>
+    <MoviesSlide movies={movies} title="# Upcoming Movies" />
   );
 };
 

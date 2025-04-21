@@ -4,3 +4,18 @@
     overflow: visible !important;
   }
   
+  .slide-title {
+    width: fit-content;
+    background: linear-gradient(
+      to right,
+      var(--color-primary-darker),
+      var(--color-primary-light)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: bold;
+    margin-top: clamp(3rem, 3vw, 5rem);
+    margin-left: clamp(1rem, 2vw, 3rem);
+  }
