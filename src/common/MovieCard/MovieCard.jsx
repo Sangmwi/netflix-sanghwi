@@ -1,8 +1,9 @@
 import React from "react";
 import { CircularProgress } from "@mui/material";
-import { Chip } from "@mui/material";
+import GenreBadge from "@/common/GenreBadge/GenreBadge";
 import "./MovieCard.style.css";
 import { useMovieGenre } from "@/hooks/useMovieGenre";
+import Rating from '@mui/material/Rating';
 
 const MovieCard = ({ movie }) => {
 
@@ -15,6 +16,11 @@ const MovieCard = ({ movie }) => {
   const showGenre = (genreIds) => {
     if (!genreIds) return [];
     return genreIds.map((id) => movieGenre?.find((genre) => genre.id === id)?.name);
+  };
+
+  const transformVoteToStar = (voteAverageScore) => {
+    if (!voteAverageScore) return "";
+    return <Rating name="read-only" size="small" value={voteAverageScore/2} precision={0.5} readOnly />;
   };
 
 
@@ -30,23 +36,18 @@ const MovieCard = ({ movie }) => {
         <h3 className="movie-card-title">{movie.title}</h3>
         <div className="movie-card-genre-container">
           {showGenre(movie.genre_ids)?.map((genre, id) => (
-            <Chip
-              className="movie-card-genre"
-              label={genre}
-              size="small"
-              color="error"
-              variant="outlined"
-              key={id}
-            />
+            <GenreBadge key={id} genre={genre} />
           ))}
         </div>
-        {/* <div className="movie-card-info-container">
-          <Chip
-            className="movie-card-vote-average"
-            label={movie.vote_average}
-            variant="outlined"
-            size="small"
-          />
+        <div className="movie-card-vote-average-container">
+          {transformVoteToStar(movie.vote_average)}
+        </div>
+
+
+
+
+
+        {/*
           <Chip
             className="movie-card-popularity"
             label={movie.popularity}
