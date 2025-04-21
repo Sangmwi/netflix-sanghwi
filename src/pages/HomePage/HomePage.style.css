@@ -2,11 +2,6 @@
   background-color: #000000;
 }
 
-.carousel-container {
-  padding: clamp(0.5rem, 1vw, 1rem) 0;
-  z-index: 0;
-  overflow: visible;
-}
 
 .slide-title {
   width: fit-content;

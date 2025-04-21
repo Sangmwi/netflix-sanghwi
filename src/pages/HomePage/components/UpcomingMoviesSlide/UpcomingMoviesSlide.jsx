@@ -1,10 +1,6 @@
 import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import { useUpcomingMovies } from "@/hooks/useUpcomingMovies";
-import MovieCard from "../MovieCard/MovieCard";
-import "./UpcomingMoviesSlide.style.css";
-import { responsive } from "../PopularMoviesSlide/PopularMoviesSlide";
+import MoviesSlide from "@/common/MoviesSlide/MoviesSlide";
 
 
 
@@ -17,17 +13,7 @@ const UpcomingMoviesSlide = () => {
   return (
     <div>
       <h2 className="upcoming-movies-title slide-title"># Upcoming Movies</h2>
-      <Carousel
-        infinite={true}
-        centerMode={true}
-        itemClass="p-2"
-        containerClass="carousel-container"
-        responsive={responsive}
-      >
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </Carousel>
+      <MoviesSlide movies={movies} />
     </div>
   );
 };
