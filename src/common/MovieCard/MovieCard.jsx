@@ -30,36 +30,43 @@ const MovieCard = ({ movie }) => {
     >
       <div className="movie-card-overlay">
         <h3 className="movie-card-title">{movie.title}</h3>
-        {showGenre(movie.genre_ids)?.map((genre, id) => (
-          <Chip
-            className="movie-card-genre"
-            label={genre}
-            size="small"
-            color="warning"
-            variant="outlined"
-            key={id}
-          />
-        ))}
-        {/* <div style={{ display: "flex", gap: "10px", flexDirection: "column" }}>
+        <div className="movie-card-genre-container">
+          {showGenre(movie.genre_ids)?.map((genre, id) => (
+            <Chip
+              className="movie-card-genre"
+              label={genre}
+              size="small"
+              color="error"
+              variant="outlined"
+              key={id}
+            />
+          ))}
+        </div>
+        {/* <div className="movie-card-info-container">
           <Chip
             className="movie-card-vote-average"
             label={movie.vote_average}
             variant="outlined"
+            size="small"
           />
           <Chip
             className="movie-card-popularity"
             label={movie.popularity}
             variant="outlined"
+            size="small"
           />
           <Chip
             className="movie-card-release-date"
             label={movie.release_date}
             variant="outlined"
+            size="small"
           />
           <Chip
             className="movie-card-adult"
-            label={movie.adult ? "over 18" : "under 18"}
-            variant="outlined"
+            label={movie.adult ? "18+" : "ALL"}
+            variant="filled"
+            size="small"
+            color={movie.adult ? "error" : "success"}
           />
         </div> */}
       </div>

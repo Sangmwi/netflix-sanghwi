@@ -26,9 +26,19 @@
     color: white;
     background-color: rgba(0, 0, 0, 0.85);
     z-index: 1;
-    padding: clamp(0.8rem, 1.5vw, 2rem);
+    padding: clamp(0.4rem, 1.5vw, 2rem);
     opacity: 0;
     transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.movie-card-overlay::-webkit-scrollbar {
+    display: none;
 }
 
 .movie-card:hover .movie-card-overlay {
@@ -37,21 +47,30 @@
 
 
 .movie-card-title {
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: clamp(0.6rem, 2.5vw, 1.8rem);
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: clamp(0.6rem, 2vw, 1rem);
+    text-align: center;
 }
+
+.movie-card-genre-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(0.1rem, 1vw, 0.4rem);
+}
+
 
 .movie-card-genre {
     background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    margin-right: 5px;
-    margin-bottom: 5px;
+    width: fit-content;
 }
 
 .movie-card-genre span {
-    font-size: clamp(0.6rem, 0.8vw, 1.5rem);
+    font-size: clamp(0.5rem, 1.2vw, 1rem);
 }
+
+
 
 
 
