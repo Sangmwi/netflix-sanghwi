@@ -92,7 +92,7 @@ export default function SidebarComponent() {
           transform: "scale(0.75)",
         },
         "& .MuiCheckbox-root.Mui-checked": {
-          color: "var(--color-primary-darker)", // 강조 컬러
+          color: "var(--color-primary-dark)", // 강조 컬러
         },
 
         // 펼침 아이콘 (▶/▼) 색상

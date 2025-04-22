@@ -21,7 +21,7 @@ const paginationStyle = {
     },
   
     "& .Mui-selected": {
-      backgroundColor: "var(--color-primary-darkest) !important",
+      backgroundColor: "var(--color-primary-darker) !important",
       color: "var(--color-primary-lightest)",
       fontWeight: "bold",
       borderColor: "#aaa",
