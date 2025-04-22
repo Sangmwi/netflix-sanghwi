@@ -36,7 +36,10 @@ const GENRE_LIST = [
 ];
 
 export default function SidebarComponent() {
-  const [selectedItems, setSelectedItems] = useState(["genre"]);
+  const [selectedItems, setSelectedItems] = useState([
+    GENRE_LIST[0].id,
+    ...GENRE_LIST[0].children.map((item) => item.id),
+  ]);
 
   const handleSelectedItemsChange = (event, ids) => {
     setSelectedItems(ids);
