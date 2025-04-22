@@ -15,7 +15,7 @@
 
 
 .movie-card:hover {
-  transform: scale(1.1) translateZ(20px);
+  transform: scale(1.05) translateZ(20px);
   z-index: 2;
 }
 
