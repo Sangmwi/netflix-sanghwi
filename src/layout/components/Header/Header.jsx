@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar, Container, Nav, Form, Button } from 'react-bootstrap'
 import { Search } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +7,22 @@ import "./Header.style.css";
 
 const Header = () => {
   const navigate = useNavigate()
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+    console.log(searchQuery);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim() === "") {
+      return;
+    }
+    navigate(`/movies?q=${searchQuery}`);
+  };
+
   return (
     <Navbar expand="md" className="bg-black">
     <Container
@@ -37,7 +53,7 @@ const Header = () => {
             Movies
           </Nav.Link>
         </Nav>
-        <Form className="d-flex">
+        <Form className="d-flex" onSubmit={handleSubmit}>
           <Form.Control
             type="search"
             placeholder="검색"
@@ -47,6 +63,8 @@ const Header = () => {
               width: "100%",
               height: "40px",
             }}
+            value={searchQuery}
+            onChange={handleSearch}
           />
           <Button
             className="search-button"

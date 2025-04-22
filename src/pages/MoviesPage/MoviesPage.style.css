@@ -1,0 +1,38 @@
+.movies-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+}
+
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 100%;
+  background-color: #f0f0f0;
+}
+
+
+.movies-list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  height: 100%;
+  background-color: #f0f0f0;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .menu-container {
+    display: none;
+  }
+}
