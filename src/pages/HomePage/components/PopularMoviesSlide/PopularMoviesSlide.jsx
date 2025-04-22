@@ -7,7 +7,7 @@ const PopularMoviesSlide = () => {
 
   const { data: popularMovies, isLoading, isError, error } = usePopularMovies();
   // 안전한 데이터 접근
-  const movies = popularMovies?.results || [];
+  const movies = popularMovies?.results.filter((movie) => movie.poster_path) || [];
 
   return (
     <MoviesSlide movies={movies} title="# Popular Movies" />

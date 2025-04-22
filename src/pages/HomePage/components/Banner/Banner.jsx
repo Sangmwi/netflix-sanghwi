@@ -10,13 +10,16 @@ const Banner = () => {
 
   console.log("qqq", popularMovies);
 
+
+  const firstMovie = popularMovies?.results.filter((movie) => movie.backdrop_path)[0];
+
   return (
     <div
       className="banner"
       style={{
         backgroundImage: isLoading
           ? "none"
-          : `url(https://image.tmdb.org/t/p/original/${popularMovies.results[0].backdrop_path})`,
+          : `url(https://image.tmdb.org/t/p/original/${firstMovie?.backdrop_path})`,
       }}
     >
       <div className="banner-content">

@@ -13,6 +13,8 @@ const MovieCard = ({ movie }) => {
 
   const { data: movieGenre } = useMovieGenre();
 
+  console.log(movieGenre);
+
   const showGenre = (genreIds) => {
     if (!genreIds) return [];
     return genreIds.map((id) => movieGenre?.find((genre) => genre.id === id)?.name);
