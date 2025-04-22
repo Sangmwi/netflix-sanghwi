@@ -22,7 +22,7 @@ const paginationStyle = {
   
     "& .Mui-selected": {
       backgroundColor: "var(--color-primary-darkest) !important",
-      color: "var(--color-secondary-light)",
+      color: "var(--color-primary-lightest)",
       fontWeight: "bold",
       borderColor: "#aaa",
     },
@@ -30,17 +30,25 @@ const paginationStyle = {
     "& .Mui-selected:hover": {
       backgroundColor: "#eee",
     },
+
+    "& .MuiPaginationItem-text": {
+        fontSize: "0.8rem",
+    },
+
+    "& .MuiPagination-ul": {
+        width: "fit-content",
+    },
   };
 
 
-const PagenationComponent = ({ page, data, setSearchParams }) => {
+const PagenationComponent = ({ page, count, setSearchParams }) => {
   return (
     <Pagination
       page={parseInt(page, 10)}
-      count={data?.total_pages || 10}
+      count={count || 5}
       shape="rounded"
-      showFirstButton
-      showLastButton
+      size="small"
+      sx={paginationStyle}
       onChange={(event, value) => {
         setSearchParams((prev) => {
           prev.set("page", value);
@@ -48,7 +56,6 @@ const PagenationComponent = ({ page, data, setSearchParams }) => {
         });
         window.scrollTo({ top: 0, behavior: "smooth" });
       }}
-        sx={paginationStyle}
     />
   );
 };

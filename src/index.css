@@ -15,8 +15,10 @@
   --color-primary-lightest: #ffd9d9;
 
   /* Secondary */
-  --color-secondary-dark: #141414;
+  --color-secondary-dark: #333;
+  --color-secondary-darker: #272727;
   --color-secondary-gray: #6D6D6D;
+  --color-secondary-lighter: #999;
 
   /* Accent */
   --color-accent-orange: #FF5722;

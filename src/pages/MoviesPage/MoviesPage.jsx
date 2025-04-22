@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./MoviesPage.style.css";
 import SidebarComponent from "./components/Sidebar/SidebarComponent";
 import { useSearchMovie } from "@/hooks/useSearchMovie";
@@ -11,6 +11,8 @@ import PagenationComponent from "./components/PagenationComponent/PagenationComp
 import NoContent from "./components/NoContent/NoContent";
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [lastValidTotalPages, setLastValidTotalPages] = useState(5);
+
   const searchQuery = searchParams.get("q") || "";
   const page = searchParams.get("page") || 1;
 
@@ -18,6 +20,12 @@ const MoviesPage = () => {
     searchQuery,
     page,
   });
+
+  useEffect(() => {
+    if (data?.total_pages) {
+      setLastValidTotalPages(data.total_pages);
+    }
+  }, [data?.total_pages]);
 
   const searchedMovies = data ? data.results : [];
   console.log("받아온 검색 데이터", data);
@@ -68,8 +76,8 @@ const MoviesPage = () => {
                   .filter((movie) => movie.poster_path)
                   .map((movie) => (
                     <Col key={movie.id} xxl={3} lg={4} xs={6}>
-                    <MovieCard movie={movie} />
-                  </Col>
+                      <MovieCard movie={movie} />
+                    </Col>
                   ))
               )}
             </Row>
@@ -78,7 +86,7 @@ const MoviesPage = () => {
               <Col>
                 <PagenationComponent
                   page={page}
-                  data={data}
+                  count={lastValidTotalPages}
                   setSearchParams={setSearchParams}
                 />
               </Col>
