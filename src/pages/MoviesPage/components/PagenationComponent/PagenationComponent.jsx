@@ -46,6 +46,7 @@ const PagenationComponent = ({ page, count, setSearchParams }) => {
     <Pagination
       page={parseInt(page, 10)}
       count={count || 5}
+      siblingCount={2}
       shape="rounded"
       size="small"
       sx={paginationStyle}
