@@ -33,6 +33,7 @@ const paginationStyle = {
 
     "& .MuiPaginationItem-text": {
         fontSize: "0.8rem",
+        padding: "0rem",
     },
 
     "& .MuiPagination-ul": {
