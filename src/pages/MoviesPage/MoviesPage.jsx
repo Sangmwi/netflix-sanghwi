@@ -22,7 +22,10 @@ const MoviesPage = () => {
   });
 
   useEffect(() => {
-    if (data?.total_pages) {
+
+    if (data?.total_pages && data?.total_pages > 500) {
+      setLastValidTotalPages(500);
+    } else if (data?.total_pages && data?.total_pages <= 500) {
       setLastValidTotalPages(data.total_pages);
     }
   }, [data?.total_pages]);
