@@ -15,7 +15,6 @@ import { useGenreStore, useSortStore } from "@/store/useFilterStore";
 const MoviesPage = () => {
   const [lastValidTotalPages, setLastValidTotalPages] = useState(5);
 
-
   const [searchParams, setSearchParams] = useSearchParams();
 
   const searchQuery = searchParams.get("q") || "";

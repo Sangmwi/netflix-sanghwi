@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useMovieDetail, useMovieReviews } from "@/hooks/useMovieDetail";
+import { useMovieDetail, useMovieReviews, useMovieTrailer } from "@/hooks/useMovieDetail";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 import { Card, CardContent, Typography, Button } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
@@ -17,8 +17,12 @@ const MovieDetailPage = () => {
     isError: isErrorReviews,
     error: errorReviews,
   } = useMovieReviews(id);
-  console.log(movieDetail);
-  console.log(movieReviews);
+  const {
+    data: movieTrailer,
+    isLoading: isLoadingTrailer,
+    isError: isErrorTrailer,
+    error: errorTrailer,
+  } = useMovieTrailer(id);
 
   if (isLoading)
     return (
@@ -188,7 +192,10 @@ const MovieDetailPage = () => {
               width="100%"
               height="100%"
               className="iframe"
-              src={`https://www.youtube.com/embed/${movieDetail?.videos?.results[0]?.key}`}
+              src={`https://www.youtube.com/embed/${
+                movieTrailer?.results.find((v) => v.type === "Trailer")?.key ||
+                movieTrailer?.results[0]?.key
+              }`}
               title="Trailer"
             ></iframe>
           </Col>
