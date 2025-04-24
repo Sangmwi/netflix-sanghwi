@@ -13,5 +13,21 @@ const fetchMovieDetail = async (id) => {
       staleTime: 1000 * 60 * 5,
     });
   };
-  
+
+
+
+const fetchMovieReviews = async (id) => {
+  return api.get(`/movie/${id}/reviews?language=en-US`);
+};
+
+export const useMovieReviews = (id) => {
+  return useQuery({
+    queryKey: ["movieReviews", id],
+    queryFn: () => fetchMovieReviews(id),
+    select: (data) => data.data,
+    staleTime: 1000 * 60 * 5,
+  });
+};
+
+
 

@@ -12,8 +12,6 @@ import { useSortStore } from "@/store/useFilterStore";
 const SortingBar = () => {
   const { sort, setSort } = useSortStore();
 
-  console.log(sort)
-
   return (
     <Box sx={{ minWidth: 90 }}>
     <FormControl fullWidth error>

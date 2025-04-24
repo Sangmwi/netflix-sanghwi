@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useMovieDetail } from "@/hooks/useMovieDetail";
-import { Container, Row, Col } from "react-bootstrap";
+import { useMovieDetail, useMovieReviews } from "@/hooks/useMovieDetail";
+import { Container, Row, Col, Carousel } from "react-bootstrap";
 import { Card, CardContent, Typography, Button } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import "./MovieDetailPage.style.css";
@@ -10,8 +10,15 @@ import { Box, CircularProgress } from "@mui/material";
 const MovieDetailPage = () => {
   const { id } = useParams();
 
-  const { data, isLoading, isError, error } = useMovieDetail(id);
-  console.log(data);
+  const { data: movieDetail, isLoading, isError, error } = useMovieDetail(id);
+  const {
+    data: movieReviews,
+    isLoading: isLoadingReviews,
+    isError: isErrorReviews,
+    error: errorReviews,
+  } = useMovieReviews(id);
+  console.log(movieDetail);
+  console.log(movieReviews);
 
   if (isLoading)
     return (
@@ -29,9 +36,7 @@ const MovieDetailPage = () => {
       className="movie-detail-page"
       fluid
       style={{
-        display: "flex",
-        justifyContent: "center",
-        backgroundImage: `url(https://image.tmdb.org/t/p/original/${data?.poster_path})`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieDetail?.poster_path})`,
       }}
     >
       <div className="overlay"></div>
@@ -40,71 +45,76 @@ const MovieDetailPage = () => {
           <Col md={5} className="movie-poster-container">
             <img
               className="movie-poster"
-              src={`https://image.tmdb.org/t/p/w500${data?.poster_path}`}
-              alt={data?.title}
+              src={`https://image.tmdb.org/t/p/w500${movieDetail?.poster_path}`}
+              alt={movieDetail?.title}
             />
           </Col>
           <Col md={7} className="movie-info">
             <Typography variant="h2" component="h1" gutterBottom>
-              {data?.title}
+              {movieDetail?.title}
             </Typography>
-            
+
             <Typography variant="h6" gutterBottom>
               <strong>
                 <StarIcon color="warning" />
               </strong>{" "}
-              {data?.vote_average ? data?.vote_average : "정보 없음"} / 10
-            </Typography>
-            
-            <Typography variant="h6" gutterBottom>
-              <strong>장르:</strong>{" "}
-              {data?.genres?.map((genre) => genre.name).join(", ")}
+              {movieDetail?.vote_average
+                ? movieDetail?.vote_average
+                : "정보 없음"}{" "}
+              / 10
             </Typography>
 
             <Typography variant="h6" gutterBottom>
-              <strong>연령:</strong> {data?.adult ? "성인" : "전체 이용가"}
+              <strong>장르:</strong>{" "}
+              {movieDetail?.genres?.map((genre) => genre.name).join(", ")}
+            </Typography>
+
+            <Typography variant="h6" gutterBottom>
+              <strong>연령:</strong>{" "}
+              {movieDetail?.adult ? "성인" : "전체 이용가"}
             </Typography>
 
             <Typography variant="h6" gutterBottom>
               <strong>개봉일:</strong>{" "}
-              {data?.release_date ? data?.release_date : "정보 없음"}
+              {movieDetail?.release_date
+                ? movieDetail?.release_date
+                : "정보 없음"}
             </Typography>
 
             <hr />
             <Button
               variant="contained"
               color="error"
-              href={data?.homepage ? data?.homepage : "/notfound"}
+              href={movieDetail?.homepage ? movieDetail?.homepage : "/notfound"}
               target="_blank"
               rel="noopener noreferrer"
-              sx={{
-                margin: "10px",
-                fontSize: "14px",
-                textTransform: "none",
-              }}
+              className="button"
             >
               공홈 바로가기
             </Button>
           </Col>
         </Row>
-        <Row className="movie-detail-content" md={12} sm={12} xs={12} >
-          <Col md={12} sm={12} xs={12} style={{ width: "100%" }}>
+        <Row className="movie-detail-content">
+          <Col>
             <Card className="card">
               <CardContent>
                 <Typography variant="body1" gutterBottom>
                   <strong>줄거리:</strong>{" "}
-                  {data?.overview ? data?.overview : "줄거리 정보 없음"}
+                  {movieDetail?.overview
+                    ? movieDetail?.overview
+                    : "줄거리 정보 없음"}
                 </Typography>
                 <hr />
                 <Typography variant="body1" gutterBottom>
                   <strong>출연진:</strong>{" "}
-                  {data?.credits?.cast && data?.credits?.cast.length > 0
-                    ? data?.credits?.cast
+                  {movieDetail?.credits?.cast &&
+                  movieDetail?.credits?.cast.length > 0
+                    ? movieDetail?.credits?.cast
                         .slice(0, 5)
                         .map((cast) => cast.name)
                         .join(", ") +
                       " 외 " +
-                      (data?.credits?.cast.length - 5) +
+                      (movieDetail?.credits?.cast.length - 5) +
                       "명"
                     : "출연진 정보 없음"}
                 </Typography>
@@ -112,40 +122,63 @@ const MovieDetailPage = () => {
             </Card>
           </Col>
         </Row>
-        <Row
-          className="movie-detail-content"
-          style={{
-            marginTop: "50px",
-            padding: "20px",
-            width: "100%",
-            maxWidth: "1200px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Col className="movie-detail-trailer"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            userSelect: "none"
-          }}
-          >
-            
-            <Typography variant="h4" gutterBottom>예고편</Typography>
+
+        {/* 리뷰 */}
+        {movieReviews && movieReviews.results.length > 0 && (
+          <Row className="movie-detail-content">
+            <Col className="movie-detail-reviews">
+            <Typography variant="h4" style={{ margin: "0 auto" }}>
+              <strong># REVIEWS </strong>
+            </Typography>
+              <Carousel>
+                {movieReviews.results.map((review) => (
+                  <Carousel.Item key={review.id}>
+                    <Card
+                      className="card"
+                      style={{
+                        width: "100%",
+                        minHeight: "250px",
+                        maxHeight: "300px",
+                        overflow: "hidden",
+                      }}
+                    >
+                      <CardContent
+                        style={{
+                          height: "250px",
+                          minHeight: "250px",
+                          overflowY: "auto",
+                          padding: "30px 120px",
+                          scrollbarWidth: "none",
+                          borderRadius: "10px",
+                          
+                        }}
+                      >
+                        <Typography variant="h6" gutterBottom>
+                          {review.author}
+                        </Typography>
+                        <hr />
+                        <Typography variant="body1" gutterBottom>
+                          {review.content}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </Col>
+          </Row>
+        )}
+
+        <Row className="movie-detail-content">
+          <Col className="movie-detail-trailer">
+            <Typography variant="h4" style={{ margin: "0 auto" }}>
+              <strong># PREVIEW </strong>
+            </Typography>
             <iframe
               width="100%"
               height="100%"
-              style={{
-                aspectRatio: "16/9",
-                borderRadius: "20px",
-                padding: "0px",
-                margin: "0px",
-                userSelect: "none",
-              }}
-              src={`https://www.youtube.com/embed/${data?.videos?.results[0]?.key}`}
+              className="iframe"
+              src={`https://www.youtube.com/embed/${movieDetail?.videos?.results[0]?.key}`}
               title="Trailer"
             ></iframe>
           </Col>

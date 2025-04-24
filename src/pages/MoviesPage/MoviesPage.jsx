@@ -50,8 +50,6 @@ const MoviesPage = () => {
   }, [data?.total_pages]);
 
   const searchedMovies = data ? data.results : [];
-  console.log("받아온 검색 데이터", data);
-  console.log("검색된 영화", searchedMovies);
 
   return (
     <div

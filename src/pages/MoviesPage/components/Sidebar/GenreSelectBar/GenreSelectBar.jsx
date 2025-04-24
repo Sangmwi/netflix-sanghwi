@@ -31,7 +31,6 @@ const GENRE_LIST = [
 
 export default function GenreSelectBar() {
   const { selectedGenre, setSelectedGenre } = useGenreStore();
-  console.log("선택된 장르", selectedGenre)
 
   return (
     <Box sx={{ minWidth: 90 }}>
