@@ -127,7 +127,7 @@ const MovieDetailPage = () => {
         {movieReviews && movieReviews.results.length > 0 && (
           <Row className="movie-detail-content">
             <Col className="movie-detail-reviews">
-            <Typography variant="h4" style={{ margin: "0 auto" }}>
+            <Typography variant="h4" style={{ margin: "0 auto", borderRadius: "10px", backgroundColor: "var(--color-primary-dark)", padding: "10px" }}>
               <strong># REVIEWS </strong>
             </Typography>
               <Carousel>
@@ -139,6 +139,7 @@ const MovieDetailPage = () => {
                         width: "100%",
                         minHeight: "250px",
                         maxHeight: "300px",
+                        padding: "30px clamp(50px, 10vw, 140px)",
                         overflow: "hidden",
                       }}
                     >
@@ -147,7 +148,7 @@ const MovieDetailPage = () => {
                           height: "250px",
                           minHeight: "250px",
                           overflowY: "auto",
-                          padding: "30px 120px",
+                          margin: "0",
                           scrollbarWidth: "none",
                           borderRadius: "10px",
                           
@@ -156,6 +157,15 @@ const MovieDetailPage = () => {
                         <Typography variant="h6" gutterBottom>
                           {review.author}
                         </Typography>
+
+                        {/* 별점 */}
+                        <Typography variant="h6" gutterBottom>
+                          <StarIcon color="warning" />
+                          {' '}
+                          {review.author_details.rating}
+                        </Typography>
+
+
                         <hr />
                         <Typography variant="body1" gutterBottom>
                           {review.content}
