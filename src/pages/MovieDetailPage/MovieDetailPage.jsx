@@ -130,6 +130,7 @@ const MovieDetailPage = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            userSelect: "none"
           }}
           >
             
@@ -142,6 +143,7 @@ const MovieDetailPage = () => {
                 borderRadius: "20px",
                 padding: "0px",
                 margin: "0px",
+                userSelect: "none",
               }}
               src={`https://www.youtube.com/embed/${data?.videos?.results[0]?.key}`}
               title="Trailer"
