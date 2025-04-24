@@ -48,24 +48,29 @@ const MovieDetailPage = () => {
             <Typography variant="h2" component="h1" gutterBottom>
               {data?.title}
             </Typography>
-            <Typography variant="h6" gutterBottom>
-              <strong>개봉일:</strong>{" "}
-              {data?.release_date ? data?.release_date : "정보 없음"}
-            </Typography>
+            
             <Typography variant="h6" gutterBottom>
               <strong>
-                <StarIcon />
+                <StarIcon color="warning" />
               </strong>{" "}
               {data?.vote_average ? data?.vote_average : "정보 없음"} / 10
             </Typography>
-            <Typography variant="h6" gutterBottom>
-              <strong>연령:</strong> {data?.adult ? "성인" : "전체 이용가"}
-            </Typography>
+            
             <Typography variant="h6" gutterBottom>
               <strong>장르:</strong>{" "}
               {data?.genres?.map((genre) => genre.name).join(", ")}
             </Typography>
 
+            <Typography variant="h6" gutterBottom>
+              <strong>연령:</strong> {data?.adult ? "성인" : "전체 이용가"}
+            </Typography>
+
+            <Typography variant="h6" gutterBottom>
+              <strong>개봉일:</strong>{" "}
+              {data?.release_date ? data?.release_date : "정보 없음"}
+            </Typography>
+
+            <hr />
             <Button
               variant="contained"
               color="error"
