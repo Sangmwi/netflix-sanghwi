@@ -35,16 +35,16 @@ const MovieDetailPage = () => {
       }}
     >
       <div className="overlay"></div>
-      <Box sx={{ maxWidth: "1600px" }}>
+      <Box className="movie-detail-page-container">
         <Row className="movie-detail-header">
-          <Col md={4} className="movie-poster-container">
+          <Col md={5} className="movie-poster-container">
             <img
               className="movie-poster"
               src={`https://image.tmdb.org/t/p/w500${data?.poster_path}`}
               alt={data?.title}
             />
           </Col>
-          <Col md={8} className="movie-info">
+          <Col md={7} className="movie-info">
             <Typography variant="h2" component="h1" gutterBottom>
               {data?.title}
             </Typography>
@@ -63,33 +63,32 @@ const MovieDetailPage = () => {
             </Typography>
             <Typography variant="h6" gutterBottom>
               <strong>장르:</strong>{" "}
-              {data?.genres.map((genre) => genre.name).join(", ")}
+              {data?.genres?.map((genre) => genre.name).join(", ")}
             </Typography>
 
             <Button
               variant="contained"
               color="error"
-              href={data?.homepage ? data?.homepage : ""}
+              href={data?.homepage ? data?.homepage : "/notfound"}
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                marginTop: "10px",
-                marginBottom: "10px",
+                margin: "10px",
                 fontSize: "14px",
                 textTransform: "none",
               }}
             >
-              공식 홈페이지
+              공홈 바로가기
             </Button>
           </Col>
         </Row>
-        <Row className="movie-detail-content">
-          <Col>
+        <Row className="movie-detail-content" md={12} sm={12} xs={12} >
+          <Col md={12} sm={12} xs={12} style={{ width: "100%" }}>
             <Card className="card">
               <CardContent>
                 <Typography variant="body1" gutterBottom>
-                  <strong>개요:</strong>{" "}
-                  {data?.overview ? data?.overview : "정보 없음"}
+                  <strong>줄거리:</strong>{" "}
+                  {data?.overview ? data?.overview : "줄거리 정보 없음"}
                 </Typography>
                 <hr />
                 <Typography variant="body1" gutterBottom>
@@ -102,10 +101,46 @@ const MovieDetailPage = () => {
                       " 외 " +
                       (data?.credits?.cast.length - 5) +
                       "명"
-                    : "정보 없음"}
+                    : "출연진 정보 없음"}
                 </Typography>
               </CardContent>
             </Card>
+          </Col>
+        </Row>
+        <Row
+          className="movie-detail-content"
+          style={{
+            marginTop: "50px",
+            padding: "20px",
+            width: "100%",
+            maxWidth: "1200px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Col className="movie-detail-trailer"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          >
+            
+            <Typography variant="h4" gutterBottom>예고편</Typography>
+            <iframe
+              width="100%"
+              height="100%"
+              style={{
+                aspectRatio: "16/9",
+                borderRadius: "20px",
+                padding: "0px",
+                margin: "0px",
+              }}
+              src={`https://www.youtube.com/embed/${data?.videos?.results[0]?.key}`}
+              title="Trailer"
+            ></iframe>
           </Col>
         </Row>
       </Box>

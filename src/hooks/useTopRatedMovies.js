@@ -7,7 +7,7 @@ import { api } from "@/utils/api";
 export const useTopRatedMovies = (page) => {
     return useQuery({
         queryKey: ['movie-top_rated', page],
-        queryFn: () => api.get('/movie/top_rated', { params: { page } }),
+        queryFn: () => api.get('/movie/top_rated?language=ko-KR', { params: { page } }),
         select: (data) => data.data,
     }); 
 };
