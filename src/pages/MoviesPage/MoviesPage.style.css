@@ -59,9 +59,10 @@
   height: 100%;
   padding: 10px;
   z-index: 10;
-  min-width: 190px;
+  min-width: 120px;
   background-color: rgba(189, 189, 189, 0.063);
 }
+
 
 
 .movie-list-container {

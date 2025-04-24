@@ -54,11 +54,15 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Pretendard Variable", sans-serif;
+  
 }
 
 html, body {
   overflow-x: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
   width: 100%;
+
   scroll-behavior: smooth;
   /* 스크롤바 스타일링 */
   &::-webkit-scrollbar {
@@ -66,7 +70,7 @@ html, body {
   }
 
   &::-webkit-scrollbar-track {
-    background: var(--color-bg-dark);
+    background: var(--color-bg-darkgray);
   }
 
   &::-webkit-scrollbar-thumb {
@@ -77,6 +81,7 @@ html, body {
   &::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary-darker);
   }
+
 }
 
 

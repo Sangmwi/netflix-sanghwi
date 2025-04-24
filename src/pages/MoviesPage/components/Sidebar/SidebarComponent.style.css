@@ -1,0 +1,33 @@
+
+/* 셀렉트 기본 스타일 */
+.sidebar-container {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    gap: 15px;
+}
+.MuiSelect-select {
+    padding: 12px !important;
+}
+
+.MuiSelect-root {
+    color: var(--color-text-light) !important;
+    transition: all 0.3s ease;
+    font-size: 12px !important;
+}
+
+.MuiSelect-root:focus {
+    border: none !important;
+}
+
+.MuiSelect-icon {
+    color: var(--color-text-light) !important;
+}
+
+.MuiMenuItem-root{
+    font-size: 14px !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+
+

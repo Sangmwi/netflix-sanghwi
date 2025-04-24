@@ -4,8 +4,11 @@ import GenreBadge from "@/common/GenreBadge/GenreBadge";
 import "./MovieCard.style.css";
 import { useMovieGenre } from "@/hooks/useMovieGenre";
 import Rating from '@mui/material/Rating';
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
+
+  const navigate = useNavigate();
 
   if (!movie) {
     return <CircularProgress size={60} />;
@@ -34,7 +37,7 @@ const MovieCard = ({ movie }) => {
         backgroundImage: `url(https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.poster_path})`,
       }}
     >
-      <div className="movie-card-overlay">
+      <div className="movie-card-overlay" onClick={() => navigate(`/movies/${movie.id}`)}>
         <h3 className="movie-card-title">{movie.title}</h3>
         <div className="movie-card-genre-container">
           {showGenre(movie.genre_ids)?.map((genre, id) => (
