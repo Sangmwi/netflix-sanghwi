@@ -50,7 +50,6 @@ const MoviesPage = () => {
   console.log(searchedMovies);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
       <div
         className="movie-page"
         style={{
@@ -114,7 +113,6 @@ const MoviesPage = () => {
           </Row>
         </Container>
       </div>
-    </Suspense>
   );
 };
 
