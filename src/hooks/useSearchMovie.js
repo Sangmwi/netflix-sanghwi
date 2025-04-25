@@ -10,7 +10,7 @@ const fetchSearchMovie = async ({ searchQuery, page, selectedGenre, sort }) => {
   params.append("language", "ko-KR");
 
   if (searchQuery) {
-    params.append("query", searchQuery);
+    params.append("with_text_query", searchQuery);
   }
   if (selectedGenre && selectedGenre !== "ALL") {
     params.append("with_genres", selectedGenre);
@@ -19,9 +19,7 @@ const fetchSearchMovie = async ({ searchQuery, page, selectedGenre, sort }) => {
     params.append("sort_by", sort);
   }
 
-  const endpoint = searchQuery
-    ? `/search/movie?${params.toString()}`
-    : `/discover/movie?${params.toString()}`;
+  const endpoint = `/discover/movie?${params.toString()}`;
 
   return api.get(endpoint);
 };
@@ -35,5 +33,6 @@ export const useSearchMovie = ({ searchQuery, page, selectedGenre, sort }) => {
     select: (data) => data?.data || [],
     staleTime: 1000 * 60 * 5,
     keepPreviousData: true,
+    refetchOnWindowFocus: false,
   });
 };
