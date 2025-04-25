@@ -67,12 +67,12 @@ const Header = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Nav.Link onClick={() => navigate("/home")} className="text-white">
+            <Nav.Link onClick={() => navigate("/home")} className="text-white NavLink">
               Home
             </Nav.Link>
             <Nav.Link
               onClick={() => navigate("/movies")}
-              className="text-white"
+              className="text-white NavLink"
             >
               Movies
             </Nav.Link>

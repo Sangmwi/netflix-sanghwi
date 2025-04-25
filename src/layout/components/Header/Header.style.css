@@ -23,6 +23,17 @@
 
 
 
+.NavLink {
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #cbcbcb !important;
+  transition: all 0.3s ease;
+}
+
+.NavLink:hover {
+  color: #ffffff !important;
+}
 
 
 
