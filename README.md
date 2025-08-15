@@ -1,12 +1,64 @@
-# React + Vite
+# 🎬 Notflix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Notflix Logo](./public/notflix.svg)
 
-Currently, two official plugins are available:
+## 📖 프로젝트 소개
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Notflix는 The Movie Database (TMDB) API를 활용하여 영화 정보를 검색하고 상세 내용을 확인할 수 있는 웹 애플리케이션입니다. React와 Vite를 기반으로 구축되었으며, 최신 영화, 인기 영화, 평점 높은 영화 등 다양한 카테고리의 영화를 탐색할 수 있습니다.
 
-## Expanding the ESLint configuration
+## ✨ 주요 기능
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **영화 검색**: 키워드를 통해 원하는 영화를 검색할 수 있습니다.
+- **영화 정보 제공**: 인기 영화, 평점 높은 영화, 상영 예정 영화 목록을 제공합니다.
+- **상세 정보 확인**: 영화 포스터, 줄거리, 평점, 예고편 등 상세 정보를 확인할 수 있습니다.
+- **장르별 필터링**: 원하는 장르의 영화만 모아볼 수 있습니다.
+- **반응형 디자인**: 다양한 디바이스에서 최적화된 화면을 제공합니다.
+
+## 🛠️ 기술 스택
+
+- **Frontend**: React, Vite
+- **State Management**: Zustand, React Query
+- **Routing**: React Router
+- **HTTP Client**: Axios
+- **Styling**:
+  - Tailwind CSS
+  - Bootstrap / React-Bootstrap
+  - Styled-components
+  - Material-UI
+  - Emotion
+- **Linting**: ESLint
+
+## 🚀 시작하기
+
+### 전제 조건
+
+- Node.js
+- npm 또는 yarn
+
+### 설치 및 실행
+
+1.  저장소를 클론합니다.
+    ```bash
+    git clone https://github.com/your-username/netflix-sanghwi.git
+    cd netflix-sanghwi
+    ```
+
+2.  의존성을 설치합니다.
+    ```bash
+    npm install
+    ```
+
+3.  개발 서버를 실행합니다.
+    ```bash
+    npm run dev
+    ```
+
+4.  브라우저에서 `http://localhost:5173` (또는 Vite가 지정한 포트)로 접속합니다.
+
+## 📜 사용 가능한 스크립트
+
+- `npm run dev`: 개발 모드로 프로젝트를 실행합니다.
+- `npm run build`: 프로덕션용으로 프로젝트를 빌드합니다.
+- `npm run lint`: ESLint를 사용하여 코드 스타일을 검사합니다.
+- `npm run preview`: 빌드된 결과물을 미리 봅니다.
+
