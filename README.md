@@ -7,6 +7,10 @@ https://netflix-sanghwi.vercel.app/
 
 Notflix는 The Movie Database (TMDB) API를 활용하여 영화 정보를 검색하고 상세 내용을 확인할 수 있는 웹 애플리케이션입니다. React와 Vite를 기반으로 구축되었으며, 최신 영화, 인기 영화, 평점 높은 영화 등 다양한 카테고리의 영화를 탐색할 수 있습니다.
 
+## 📌 미리보기
+<img width="671" height="1184" alt="image" src="https://github.com/user-attachments/assets/38d8ae2f-7c9e-498d-a074-2cfad42bc91d" />
+
+
 ## ✨ 주요 기능
 
 - **영화 검색**: 키워드를 통해 원하는 영화를 검색할 수 있습니다.
