@@ -1,6 +1,7 @@
 # 🎬 Notflix
 
-![Notflix Logo](./public/notflix.svg)
+코알누님 리액트 스터티 마지막 프로젝트, 짭플릭스(낫플릭스) 만들기 프로젝트입니다.
+https://netflix-sanghwi.vercel.app/
 
 ## 📖 프로젝트 소개
 
@@ -47,13 +48,15 @@ Notflix는 The Movie Database (TMDB) API를 활용하여 영화 정보를 검색
     ```bash
     npm install
     ```
+    
+3.  환경변수 설정합니다.
+    TMDB Access Token(VITE_TMDB_ACCESS_TOKEN)만 설정해주면 됩니다.
+    필수는 아니지만 노출을 막으려면 VITE_를 빼서 배포해야 합니다. 
 
-3.  개발 서버를 실행합니다.
+4.  개발 서버를 실행합니다.
     ```bash
     npm run dev
     ```
-
-4.  브라우저에서 `http://localhost:5173` (또는 Vite가 지정한 포트)로 접속합니다.
 
 ## 📜 사용 가능한 스크립트
 
